@@ -6,8 +6,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 DATA_DIR = BASE_DIR / "data"
-RAW_DATA = DATA_DIR / "raw_pdfs"
-VECTOR_DB = DATA_DIR / "vector_store"
+RAW_PDF_DIR = DATA_DIR / "raw_pdfs"
+PROCESSED_DIR = DATA_DIR / "processed"
+VECTOR_STORE_DB = DATA_DIR / "vector_store"
+EMBEDDINGS_CACHE_DIR = DATA_DIR /"embeddings"
 
 # ------------------
 # CHUNKING
@@ -20,7 +22,7 @@ CHUNK_OVERLAP = 100
 # EMBEDDINGS
 # -----------------
 
-EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 #-------------------
 # VECTOR STORE 
@@ -34,7 +36,6 @@ TOP_K = 5
 # RETRIEVAL
 # --------------
 
-RETRIEVAL_TYPE = "dense"
 
 # options
 # dense
