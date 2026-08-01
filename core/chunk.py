@@ -10,6 +10,7 @@ class Chunk:
     metadata : Dict[str,Any] = field(default_factory = dict)
 
     embeddings :Optional[list] =None
+    score : float = 0.0
 
     def __len__(self) ->int:
         """Number of characters"""
