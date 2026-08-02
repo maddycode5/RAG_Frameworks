@@ -13,7 +13,7 @@ class IngestionPipeline:
     def run(self,folder_path):
         documents = self.loader.load(folder_path)
         chunks = self.splitter.split(documents)
-        chunks =self.metadata.generate(chunks)
+        chunks =self.metadata_generator.generate(chunks)
 
         return chunks
 

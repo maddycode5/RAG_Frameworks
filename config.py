@@ -22,6 +22,8 @@ CHUNK_OVERLAP = 100
 # EMBEDDINGS
 # -----------------
 
+EMBEDDING_BATCH_SIZE =32
+
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 #-------------------
