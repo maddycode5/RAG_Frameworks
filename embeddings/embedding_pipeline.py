@@ -1,7 +1,8 @@
 # EMBEDDING PIPELINE
 
-
+from typing import List
 from core.chunk import Chunk
+from core.embeddings import Embedding
 
 from embeddings.embedding_model import EmbeddingModel
 from embeddings.cache import EmbeddingCache
@@ -15,29 +16,43 @@ class EmbeddingPipeline:
 
         self.cache = EmbeddingCache()
 
-    def run(self,chunks : list[Chunk]) -> list[Chunk]:
-        logger.info("Starting Embedding Pipeline")\
+    def run(self,chunks : List[Chunk]) -> List[Embedding]:
+        logger.info("Starting Embedding Pipeline")
 
         texts =[]
         chunk_indices= []
+        embedding_objects = []
 
         for idx,chunk in enumerate(chunks):
 
-            if self.cache.exists(chunk.texts):
-                chunk.embedding =self.cache_load(chunk.text)
+            if self.cache.exists(chunk.text):
+                cached_vector = self.cache.load(chunk.text)
+
+                embedding_objects.append(
+                    Embedding(
+                        chunk_id = chunk.chunk_id,
+                        vector = cached_vector
+                    )
+                )
 
             else:
                 texts.append(chunk.text)
                 chunk_indices.append(idx)
 
         if texts:
-            embeddings = self.model.embed(texts)
-            for idx, embedding in zip(chunk_indices , embeddings):
-                chunk[idx].embedding = embedding
-                self.cache.save(chunk[idx].text,embedding)
+            vectors = self.model.embed(texts)
+            for idx, vector in zip(chunk_indices , vectors):
+                self.cache.save(chunks[idx].text,vector)
+                embedding_objects.append(
+                    Embedding(
+                        chunk_id = chunks[idx].chunk_id,
+                        vector = vector
+                    )
+                )
+                
 
-        logger.info(f"Embedd {len(chunks)} chunks")
+        logger.info(f"Successfully generated embeddings for {len(embedding_objects)} chunks")
 
-        return chunks
+        return embedding_objects
 
     

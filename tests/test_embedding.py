@@ -11,9 +11,9 @@ print(f"Chunks Generated : {len(chunks)}")
 
 # Generate Embeddings
 embedding_pipeline = EmbeddingPipeline()
-embedded_chunks =embedding_pipeline.run(chunks)
+embedded =embedding_pipeline.run(chunks)
 
-print(f"Embedded Chunks : {len(embedded_chunks)}")
+print(f"Embedded Chunks : {len(embedded)}")
 
-print(type(embedded_chunks[0].embedding))
-print(embedded_chunks[0].embedding.shape)
+print(type(embedded[0].embedding))
+print(embedded[0].embedding.shape)

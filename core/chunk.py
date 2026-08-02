@@ -8,8 +8,6 @@ class Chunk:
     chunk_id : str
     text:str
     metadata : Dict[str,Any] = field(default_factory = dict)
-
-    embeddings :Optional[list] =None
     score : float = 0.0
 
     def __len__(self) ->int:
@@ -32,7 +30,8 @@ class Chunk:
             "chunk_id" :self.chunk_id,
             "text" : self.text,
             "metadata" : self.metadata,
-            "embedding" : self.embedding
+            "score" : self.score
         }
+
 
     
