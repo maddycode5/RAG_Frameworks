@@ -8,7 +8,12 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 RAW_PDF_DIR = DATA_DIR / "raw_pdfs"
 PROCESSED_DIR = DATA_DIR / "processed"
-VECTOR_STORE_DB = DATA_DIR / "vector_store"
+VECTOR_STORE_DIR = DATA_DIR / "vector_store"
+FAISS_INDEX_FILE = VECTOR_STORE_DIR / "faiss.index"
+FAISS_MAPPING_FILE = VECTOR_STORE_DIR / "chunk_ids.pkl"
+
+BM25_INDEX_FILE =VECTOR_STORE_DIR / "bm25.pkl"
+
 EMBEDDINGS_CACHE_DIR = DATA_DIR /"embeddings"
 
 # ------------------
