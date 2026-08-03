@@ -10,8 +10,8 @@ used by :
 -RRF
 -Cross Encoder
 """
-from dataclasses import dataclass
-from typing import Optional
+from dataclasses import dataclass,field
+from typing import Optional,Dict,Any
 
 from core.chunk import Chunk
 
@@ -23,3 +23,4 @@ class RetrievalResult:
     score:float
     source :str
     rank : Optional[int] = None
+    metadata : Dict[str,Any] =field(default_factory =dict)

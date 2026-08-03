@@ -43,6 +43,7 @@ TOP_K = 5
 # RETRIEVAL
 # --------------
 
+RETRIEVAL_TYPE = "hybrid"
 
 # options
 # dense
