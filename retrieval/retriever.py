@@ -31,6 +31,7 @@ class Retriever:
 
     def _initialize_strategy(self):
         repository = self.manager.get_repository()
+
         if RETRIEVAL_TYPE == "dense":
             logger.info("Using Dense Retriever")
 

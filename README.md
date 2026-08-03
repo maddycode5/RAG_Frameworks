@@ -28,8 +28,21 @@ A modular Retrieval-Augmented Generation framework built completely from scratch
           ▼
       Index Manager
 
+# HYBRID RETRIEVAL ENGINE
 
-
+      User Query
+            │
+            ▼
+      Retriever
+            │
+            ▼
+      Hybrid Retriever
+            │
+            ├── Dense Retriever (FAISS)
+            ├── Sparse Retriever (BM25)
+            └── RRF Fusion
+            ▼
+      RetrievalResult[]
 ## Features
 
 - Dense Retrieval
