@@ -60,7 +60,8 @@ class IndexManager:
     # load indexes
     def load(self):
         logger.info("Loading Indexes")
-
+        
+        self.repository.load()
         self.faiss_store.load()
         self.bm25_store.load()
 
