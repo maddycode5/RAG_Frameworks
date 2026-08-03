@@ -23,4 +23,8 @@ class RetrievalResult:
     score:float
     source :str
     rank : Optional[int] = None
-    metadata : Dict[str,Any] =field(default_factory =dict)
+    metadata : Dict[str,Any] =field(default_factory = lambda : {
+        "scores" :{}
+    })
+
+    

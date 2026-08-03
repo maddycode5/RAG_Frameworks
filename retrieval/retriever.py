@@ -23,9 +23,9 @@ from vectordb.manager import IndexManager
 from utils.logger import logger
 
 class Retriever:
-    def __init__(self,manager:IndexManager):
-        self.manager =manager,
-        self.strategy =self._initialize_strategy()
+    def __init__(self, manager: IndexManager):
+        self.manager = manager
+        self.strategy = self._initialize_strategy()
 
     # Initialize Retrieval Strategy
 
