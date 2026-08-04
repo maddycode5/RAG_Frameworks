@@ -54,9 +54,23 @@ RETRIEVAL_TYPE = "hybrid"
 # contextual
 # self_rag
 # crag
-# adaptive
-
+# adaptive 
+  
+  
+#================
+# PARENT CHUNKING
 # ==========================
+PARENT_CHUNK_SIZE = 1200
+PARENT_CHUNK_OVERLAP = 200
+
+#================
+# CHILD CHUNKING
+# ==========================
+CHILD_CHUNKING = 400
+CHILD_CHUNK_OVERLAP = 80
+
+# ==========
+#================
 # RERANKER
 # ==========================
 
