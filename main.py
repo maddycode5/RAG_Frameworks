@@ -1,22 +1,25 @@
 from ingestion.pipeline import IngestionPipeline
 from embeddings.embedding_pipeline import EmbeddingPipeline
-from vectordb.manager import IndexManager
+from vectordb.index_manager import IndexManager
 
 from config import RAW_PDF_DIR
 
 # ingestion
 ingestion =IngestionPipeline()
-chunks =  ingestion.run(RAW_PDF_DIR)
+child_chunks,parent_chunks =  ingestion.run(RAW_PDF_DIR)
 
 # embeddings
 embedding_pipline = EmbeddingPipeline()
-embeddings = embedding_pipline.run(chunks)
+embeddings = embedding_pipline.run(child_chunks)
 
 # index manager
 
 manager = IndexManager()
-manager.build(chunks,embeddings)
+manager.build(child_chunks =child_chunks,
+            parent_chunks=parent_chunks,
+            embeddings = embeddings)
+
 manager.save()
 
-print("Hybrid Index Built sucessfully")
+print("Indexing Completed sucessfully")
 

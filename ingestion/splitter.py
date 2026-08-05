@@ -69,5 +69,5 @@ class RecursiveSplitter(BaseSplitter):
                             },
                         )
                     )
-                return chunks
+                return child_chunks,parent_chunks
             
