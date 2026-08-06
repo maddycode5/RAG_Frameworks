@@ -1,6 +1,6 @@
 from ingestion.pipeline import IngestionPipeline
 from embeddings.embedding_pipeline import EmbeddingPipeline
-from vectordb.index_manager import IndexManager
+from storage.index_manager import IndexManager
 
 from config import RAW_PDF_DIR
 

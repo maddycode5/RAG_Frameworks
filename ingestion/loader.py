@@ -5,7 +5,7 @@ from typing import List
 
 import fitz
 
-from core.base_loader import BaseLoader
+from interfaces.base_loader import BaseLoader
 from core.document import Document
 from utils.logger import logger
 from utils.helpers import clean_text

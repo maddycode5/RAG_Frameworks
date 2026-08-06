@@ -18,7 +18,7 @@ import faiss
 import numpy as np 
 
 from core.embeddings import Embedding
-from core.base_vectordb import BaseVectorDB
+from interfaces.base_vectordb import BaseVectorDB
 
 from config import VECTOR_STORE_DIR
 from utils.logger import logger
