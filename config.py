@@ -86,3 +86,9 @@ LLM_PROVIDER= "ollama"
 LLM_NAME = "llama3"
 TEMPERATURE = 0.2
 MAX_TOKENS = 512
+
+#==============
+#GENERATION
+#===============
+
+MAX_CONTEXT_CHARS = 6000
